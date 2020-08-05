@@ -1,0 +1,44 @@
+@import "~@styles/colors.scss";
+
+#errorPage {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  text-align: center;
+  span {
+    position: fixed;
+    height: 0px;
+    font-family: "8bit";
+    width: 100%;
+    vertical-align: bottom;
+    font-size: 30px;
+    color: rgb(231, 255, 217);
+    text-shadow: 4px 4px $fg3;
+    text-transform: uppercase;
+    z-index: 1;
+    animation:blinkingText 1.75s infinite;
+  }
+  
+}
+
+@keyframes blinkingText{
+  0%{     visibility: hidden;    }
+  30%{    visibility: hidden; }
+  31%{    visibility: visible; }
+  99%{    visibility: visible;  }
+  100%{   visibility: hidden;    }
+}
+
+img {
+  // height: 100vh;
+  // width: 100vw;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top;
+  vertical-align: top;
+
+}
+

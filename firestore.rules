@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function affectedKeys(keys){
+      return request.resource.data.diff(resource.data).affectedKeys().hasOnly(keys)
+    }
+
+    function affectedKeysObj(obj1Key, obj2Key, keys){
+      return request.resource.data[obj1Key].diff(resource.data[obj2Key]).affectedKeys().hasOnly(keys)
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    match /users/{uid}{
+      allow get: if request.auth.uid == uid;
+      allow update: if request.auth.uid == uid 
+        && ! affectedKeys(["meta"]) 
+        && affectedKeys(["userData"]) 
+        && affectedKeysObj("userData", "userData", ["bio", "displayName"]);
+    }
+    match /users_public/{uid}{
+      allow get;
+    }
+  }
+}

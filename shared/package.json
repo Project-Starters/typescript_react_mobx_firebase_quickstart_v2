@@ -1,0 +1,50 @@
+{
+  "name": "shared",
+  "version": "1.0.2",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -d; cp -r ../shared ../functions/; cd ../functions/; npm i shared; cd ../frontend/; npm i shared"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "class-validator": "^0.12.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "jest": "^25.2.4",
+    "ts-jest": "^25.3.0",
+    "typescript": "^3.8.3"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(shared)/)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "isolatedModules": true
+      }
+    }
+  }
+}

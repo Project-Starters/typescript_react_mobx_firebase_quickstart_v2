@@ -1,0 +1,14 @@
+@import "~@styles/colors.scss";
+$pc: $fg3;
+$dc: $bg3;
+#driverWrapper {
+    height: 100vh;
+    width: 100vw;
+    background-color: $dc;
+}
+
+#passengerWrapper {
+    height: 100vh;
+    width: 100vw;
+    background-color: $pc;
+}

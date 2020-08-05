@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "rootDir": "src/",
+    "outDir": "lib/",
+    "sourceMap": false,
+    "strict": true,
+    "target": "es2017",
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false
+  },
+  "compileOnSave": true,
+  "include": [
+    "src"
+  ],
+  "files": [
+    "src/*.ts"
+  ],
+  "exclude": [
+  ]
+}
